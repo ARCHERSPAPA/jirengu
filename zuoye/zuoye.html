@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #biaodao{
+        padding: 12px
+    }
+    </style>
+</head>
+<body>
+    <div id="biaodao">
+        <form action="/ceshi" id="biaodao">
+        <div id="user1">
+            <label for="user">用户名：</label>
+            <input type="text" name="user" id="user">
+        </div>
+        <div id="mima">
+            <label for="pas">&nbsp;&nbsp;&nbsp;密码：&nbsp;</label><input type="password" name="pas" id="pas"placeholder="请输入密码"> 
+        </div>
+        <div id="sex">
+           <span>&nbsp;&nbsp;&nbsp;性别：</span><input type="radio" name="sex" id="nan"value="nan">男
+           <input type="radio" name="sex" id="nv"value="nv">女
+        </div>
+        <div id="quxiang">
+                <span>&nbsp;&nbsp;&nbsp;取向：</span><input type="radio" name="se" id="nan"value="nan">男
+                <input type="radio" name="se" id="nv"value="nv">女
+             </div id="hobby">
+             <div>&nbsp;&nbsp;&nbsp;爱好：<input type="checkbox" name="hobby" id="1"value="dota">dota
+                <input type="checkbox" name="hobby" id="2"value="旅游">旅游
+                <input type="checkbox" name="hobby" id="3"value="宠物">pets
+            </div>
+            <div id="pinglun">
+                评论：<textarea name="pinglun" id="pingl" cols="30" rows="10">ddd</textarea>
+            </div>
+            <div id="wode">
+                    <span>my car:</span><select name="car" id="car">
+                    <option value="萨博">萨博</option>
+                    <option value="宝马">宝马</option>
+                </select>
+            </div>
+            <div id="submit">
+                <input type="submit" value="提交">
+                <input type="reset" value="重置">
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>
