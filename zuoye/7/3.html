@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+   .tb
+  {
+    border-collapse:collapse;
+ margin: 0 auto;
+ border-spacing: 0;
+ border: 2px solid #555;
+ font-family: "黑体";
+ margin-top: 30px
+  }
+
+.tb tr{
+    border-bottom: 2px solid #555;
+    
+}
+ 
+  td{
+    padding: 10px
+  }
+  .tb tr:nth-child(even){
+      background: #888
+  }
+  .tb thead tr:first-child{
+      background: green;
+      color: aliceblue
+  }
+  #sec thead tr:first-child{
+      background:white;
+      color: pink
+  }
+  
+  
+    </style>
+</head>
+<body>
+    <table class="tb">
+        <thead>
+            <tr>
+                <td>first name</td>
+                <td>last name</td>
+                <td>points</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="f">
+                <td>jill</td>
+                <td>smith</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                    <td>eve</td>
+                    <td>jackson</td>
+                    <td>94</td>
+                </tr>
+                <tr>
+                        <td>adam</td>
+                        <td>johnson</td>
+                        <td>67</td>
+                    </tr>
+                    <tr>
+                            <td>bo</td>
+                            <td>nisson</td>
+                            <td>50</td>
+                        </tr>
+        </tbody>
+    </table>
+    <table class="tb"id="sec">
+        <thead>
+            <tr>
+                <td>first name</td>
+                <td>last name</td>
+                <td>points</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="f">
+                <td>jill</td>
+                <td>smith</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                    <td>eve</td>
+                    <td>jackson</td>
+                    <td>94</td>
+                </tr>
+                <tr>
+                        <td>adam</td>
+                        <td>johnson</td>
+                        <td>67</td>
+                    </tr>
+                    <tr>
+                            <td>bo</td>
+                            <td>nisson</td>
+                            <td>50</td>
+                        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
