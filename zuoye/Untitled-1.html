@@ -5,29 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+    .border{
+        border: 1px solid rgba(50,50,50,0.4);
+        width: 200px;
+        height: 100px;
+        margin: 20px
+
+         }
+         #top::after{
+             content: '';
+             display: block;
+             border: 15px solid rgba(50,50,50,0.0);
+             width: 0;
+             height: 0;
+             border-bottom: 15px solid grey;
+             position: relative;
+             top: -30px;
+             left: 13px;
+         }
+         .detail{
+             
+             padding: 30px;
+             margin:  0 auto;
+                      
+             width: 300px;
+           
+         }
+         #right::after{
+            content: '';
+             display: block;
+             border: 15px solid rgba(50,50,50,0.0);
+             width: 0;
+             height: 0;
+             border-bottom: 15px solid red;
+             position: relative;
+             top: -16px;
+             right: -186px;
+             transform: rotate(45deg)
+         }
+         #top1::after{
+            content: '';
+             display: block;
+             border: 15px solid rgba(50,50,50,0.0);
+             width: 0;
+             height: 0;
+             border-bottom: 15px solid white;
+            box-sizing:border-box;
+             position: absolute;
+             top: -30px;
+             left: 13px; 
+         }
+         span{
+            border: 15px solid rgba(50,50,50,0.0);
+             width: 0;
+             height: 0;
+             border-bottom: 15px solid grey;
+            box-sizing:border-box;
+             position: relative;
+             top: -37px;
+             left: 13px; 
+         }
+         #top1{
+            position: relative;
+         }
+         
+    </style>
+    
 </head>
-<style>
-ul{
-    list-style: none
-}
-li{
-    display: inline;
-    background-color: azure;
-    text-align: center;
-    text-decoration: none
-}
-a{
-  text-decoration: none
-}
-</style>
 <body>
- <nav>
-     <ul>
-         <li><a href="#">我</a></li>
-         <li><a href="#">哎</a></li>
-         <li><a href="#">你</a></li>
-         <li><a href="#">哦</a></li>
-     </ul>
- </nav>
+    <div class="detail">
+    <div class="border"id="top"></div>
+    <div class="border"id="top1"><span></span></div>
+    <div class="border"id="right"></div>
+</div>
 </body>
 </html>
