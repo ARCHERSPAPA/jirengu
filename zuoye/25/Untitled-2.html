@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            width: 500px
+          
+        }
+    .col{
+        display: inline-block;
+        border: 1px solid;
+        color: blue;
+        width: calc(50% - 2px);
+        height: 600px;
+        border-radius: 20%
+        
+        
+    }
+    </style>
+</head>
+<body>
+    <div id="ent"></div>
+    <button>click</button>
+</body>
+<script async>
+document.getElementsByTagName('button')[0].onclick=function(){
+    document.querySelector('#ent').classList.toggle('col')
+}
+document.querySelector('#ent').addEventListener('mouseover',function(i){
+    var po = document.createElement('img')
+
+    po.setAttribute('src','1.jpg')
+    this.append(po)
+})
+</script>
+</html>
