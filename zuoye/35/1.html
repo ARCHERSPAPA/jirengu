@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      div.display{
+        display: block
+    }
+      div{
+        display:none;
+        width: 30px;
+        height: 30px;
+      }
+    
+    </style>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1140150_84oh6ore37.css">
+</head>
+<body>
+    <div class="iconfont icon-line display"></div>
+    <div class="iconfont icon-up"></div>
+</body>
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+  <script>
+    $('div').on('click',function(){
+        $(this).toggleClass('display')
+        $(this).siblings().toggleClass('display')
+    })
+  </script>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @import url(reset.css);
+        h1{
+            padding-left: 40%;
+            position: sticky;
+            top:0;
+            z-index: 2;
+        }
+      
+        .content{
+           width: calc(80%);
+           margin: 0 auto;
+          
+        }
+      li{
+            float: left;
+            margin: 30px;
+            position: relative;
+        }
+        img{
+        width: 500px;
+           margin: 10px;
+           height: 300px;
+           z-index: 1;
+        }
+        
+        .button{
+            position: absolute;
+            left: 45%;
+            top:45%;
+            display: none;
+            background: rgba(204, 176, 18);
+            border-radius: 20%;
+            
+           
+        
+        }
+        li.show{
+            opacity: 0.5;
+            
+        }
+        .button>a{
+            color: red;
+            padding: 20px
+        }
+        .button.show{
+                display: block;
+                
+        }
+        .hidden{
+            display: none
+        }
+        .content{
+            overflow: scroll
+        }
+     
+    </style>
+</head>
+<body>
+    <h1>welcome to herosworld</h1>
+   <div class="content clearfixed">
+     <ul>
+         <li >
+             <div class="button "><a href="">删除</a> </div>
+             <img src="https://i.loli.net/2019/04/15/5cb4264c08897.jpg" alt="">     
+         </li>
+         <li>
+                <div class="button "><a href="">删除</a> </div>
+                <img src="https://i.loli.net/2019/04/15/5cb426c7937e0.jpg" alt="">     
+         </li>
+         <li>
+                <div class="button "><a href="">删除</a> </div>
+                <img src="https://i.loli.net/2019/04/15/5cb426c7a062a.jpg" alt=""> 
+         </li>
+      
+     </ul>
+   </div>
+    <button style="margin-left: 50%;margin-top: 50px;margin-right:30px" id="show"><a href="#show">show more</a> </button>
+    <button style="margin-top: 50px" id="edit">edit</button>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script>
+$('button').eq('1').on('click',function(){
+    $('li').toggleClass('show')
+    $('li>div').toggleClass('show')
+})
+$('ul').on('click','.button',function(i){
+    i.preventDefault()
+    $(this).parents('li').addClass('hidden')
+})
+var imgD
+$.ajax({
+    url:"https://easy-mock.com/mock/5cb441c1f69f12350647ac21/hzw/hzw#!method=get",
+    method:'get',
+}).done(function(i){
+    imgD=i
+    console.log(imgD)
+})
+$('button').eq('0').on('click',function(){
+    var index=Math.floor(Math.random()*4)
+    if(index===0){
+        index=1
+    }
+    $('li').removeClass('show')
+    $('li div').removeClass('show')
+    var a= $('li div').eq('1').clone()
+    var s=$('ul').append('<li></li>').children().last().append(a)
+    s.append('<img>').children('img').attr('src',imgD[index])
+    
+    console.log(s.children())
+    console.log(imgD[index])
+    
+})
+</script>
+</html>

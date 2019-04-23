@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0
+    }
+    li{
+        list-style: none;
+    }
+    .tab_t li{
+        float: left;
+        border: 1px solid;
+        background: rgb(110, 108, 108)
+       
+    }
+   
+  .tab_t li a{
+      text-decoration: none;
+      padding: 10px;
+      color: black
+  }
+    .clearfixed::after{
+        content:'';
+        clear: both;
+        display: block;
+     
+    }
+    .tab_c{
+
+        width: 400px;
+        height: 200px;
+        border: 1px solid;
+        position: relative;
+        top:0;
+
+    }
+    .tab_c li{
+        display: none
+    }
+    .tab_t li.show{
+        background: white
+    }
+
+.tab_c li.show{
+    display: block;
+    font-size: 3em;
+    
+}
+.tab{
+    margin:10px;
+    border:10px solid;
+    padding: 5px;
+    outline: 10px;
+  
+}
+
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <ul class="tab_t clearfixed">
+            <li class="show"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+        </ul>
+        
+        <ul class="tab_c">
+            <li class="dis">1</li>
+            <li class="dis">2</li>
+            <li class="dis">3</li>
+            <li class="dis">4</li>
+        </ul>
+    </div>
+    <div class="tab">
+        <ul class="tab_t clearfixed">
+            <li class="show"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+        </ul>
+        
+        <ul class="tab_c">
+            <li class="dis">1</li>
+            <li class="dis">2</li>
+            <li class="dis">3</li>
+            <li class="dis">4</li>
+        </ul>
+    </div>
+    <div class="tab">
+        <ul class="tab_t clearfixed">
+            <li class="show"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li class="show"><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+        </ul>
+        
+        <ul class="tab_c">
+            <li class="dis">1</li>
+            <li class="dis">2</li>
+            <li class="dis">3</li>
+            <li class="dis">4</li>
+        </ul>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script>
+$('.tab_t li').on('click',function(i){
+    $(this).addClass('show')
+    .siblings().removeClass('show')
+console.log($(this).parents('.tab').find(".dis").eq($(this).index()))
+ $(this).parents('.tab').find(".dis").eq($(this).index()).addClass('show').siblings().removeClass('show')})
+
+
+// document.querySelectorAll('.tab_t li').forEach(function(i){
+//      i.addEventListener('click',function(){
+//          var index
+//         i.parentElement.querySelectorAll('.tab_t li').forEach(function(a ,j){
+//             a.classList.remove('show')
+//             if(i === a){
+//                 index = j
+//             }
+//         })
+//         console.log(document.querySelectorAll('.dis'))
+//         console.log( this.parentElement.nextElementSibling.querySelectorAll('.dis'))
+//         this.classList.add('show')
+//         this.parentElement.nextElementSibling.querySelectorAll('.dis').forEach(function(a){
+//             a.classList.remove('show')
+//         })
+//         this.parentElement.nextElementSibling.querySelectorAll('.dis')[index].classList.add('show')
+//         //因为要做到互补干涉，所以要用parent
+//      })
+   
+// })
+$(function(){
+    console.log('nihaoa')
+})
+</script>
+
+</html>

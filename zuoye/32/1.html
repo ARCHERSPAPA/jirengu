@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+ 
+</head>
+<body>
+        <div class="container">
+                <ul class="news">
+                </ul>
+                <button class="show">show news</button>
+              </div>
+</body>
+
+<!-- <script>
+    function show(a){
+        console.log(a)
+    }
+    </script>
+       <script src="http://haha:8080/zeze?callback=show"> 
+       </script> -->
+       <script>
+    var s
+     var xhr = new XMLHttpRequest()
+    xhr.open('get','http://haha:8080/haha',true)
+     s=xhr.responseText
+    xhr.send()
+     console.log(s)
+    </script>
+<!-- //         $('.show').addEventListener('click', function(){
+//           var script = document.createElement('script');
+//           script.src = 'http://haha:8080/zeze?callback=show';
+//           document.head.appendChild(script);
+//           document.head.removeChild(script);
+//         })
+      
+//         function show(news){
+//           var html = '';
+//           for( var i=0; i<news.length; i++){
+//             html += '<li>' + news[i] + '</li>';
+//           }
+//           console.log(html);
+//           $('.news').innerHTML = html;
+//         }
+      
+//         function $(id){
+//           return document.querySelector(id);
+        }
+       </script>  -->
+
+<!-- <script>
+    var shuju
+    
+var xhr = new XMLHttpRequest()
+xhr.open('get','haha:8080/haha',true)
+xhr.onload =function(){
+    shuju=JSON.parse(xhr.responseText)
+}
+xhr.send()
+document.getElementsByTagName('p')[0].innerText=shuju
+</script> -->
+</html>

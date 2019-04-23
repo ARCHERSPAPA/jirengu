@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        height: 300px;
+        border: 1px solid;
+        width: 200px;
+    }
+    .button{
+        box-shadow: 3px 3px 10px 6px rgba(78, 81, 82, 0.5);
+        border-radius: 20%
+    }
+    </style>
+</head>
+<body>
+    <div class="button">
+        <ul>
+            <li>haha</li>
+            <li>haha</li>
+            <li>haha</li>
+            <li>haha</li>
+            <span>nimade</span>
+        </ul>
+    </div>
+   
+   <input type="text" autofocus required>  <button>click to add new title</button>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script>
+// $('button').on('click.haha',function(){
+//      $('input[type="text"] ').text()
+// })
+$('ul').on('click.ok','li',function(i){
+    console.log(i)   //i的值为事件
+})
+$('ul').on('click.fun','span',function(i){
+    console.log(i.target)     //监听不同的事件
+})
+$('ul').off('click.fun') //解绑fun的事件
+$('button').click(function(){
+    var s='<li>' + $('input[type="text"]').val() +'</li>'
+    $('ul').append(s)
+})
+</script>
+</html>

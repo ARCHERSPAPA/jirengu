@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1127141_xgm48x3drsl.css">
+  <link rel="shortcut icon" href="http://cnews.chinadaily.com.cn/img/attachement/jpg/site1/20170615/a41f726b05111aac6c3e3c.jpg" type="image/x-icon">
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        
+    }
+    html,body{
+        height: 100%;
+        min-width: 600px
+    }
+     .content{
+         height: 85%;
+  
+          background-size: cover;
+          background-position: 20px;
+         opacity: 0.5
+         
+     }
+     .ctr{
+         height: 15%;
+
+         position: relative;
+       
+     }
+     .ctr .ctr-c{
+         display: flex;
+         justify-content: center;
+     }
+     .iconfont{
+         font-size: 3.5em;
+         margin: 10px;
+ 
+     }
+     a{
+         color: black;
+         text-decoration: none
+     }
+     .clearfixed::after{
+         clear: both;
+         content: '';
+         display: inline-block
+     }
+     
+     .jd-l{
+         
+         background: rgba(40, 49, 51, 0.5);
+         height: 20px;
+         width: 100%;
+         position: absolute;
+         top: 82px;
+         
+     }
+     .jd-w{
+         background: rgba(29, 27, 27, 1);
+         height: 22px;
+         width: 1%
+         
+     }
+     .mess{
+         height: 100%;
+         width: 600px;
+         text-align: center;
+        
+         margin: 0 auto;
+     }
+     .actor{
+         height: 200px;
+     }
+    
+    </style>
+</head>
+<body>
+   
+        <div class="content">
+            <div class="mess">
+                <div class="actor">
+                    <h2></h2>
+                    <span>歌手:</span><span>向建宇</span></div>
+                <div class="gc"></div>
+            </div>
+        </div>
+        <div class="ctr clearfixed">
+            <div class="ctr-c">
+                <a href="#"><div class="iconfont iconf" ></div></a>
+               <a href="#"><div class="iconfont iconn"></div> </a>
+               <a href="#"> <div class="iconfont iconbf"></div></a> 
+                      
+            </div>
+               <div class="jd-l"></div>
+               <div class="jd-w"></div>
+               <div class="time-jd" style="float:right">0:00</div>
+            </div>
+    
+</body>
+<script>
+function $$(i){
+    return document.querySelectorAll(i)
+}
+function $(i){
+    return document.querySelector(i)
+}
+var audio= new Audio()
+audio.autoplay=true
+var alist=2
+
+$$('.ctr-c div')[2].addEventListener('click',function(){
+    alist=++alist%4
+    musicpl(musiclist[alist])
+   
+    if ($$('.ctr-c div')[1].classList.contains('iconn'))
+    {
+        $$('.ctr-c div')[1].classList.remove('iconn')
+    $$('.ctr-c div')[1].classList.add('iconzt')
+    }
+    
+  
+        audio.play()
+})
+$$('.ctr-c div')[0].addEventListener('click',function(){
+    alist=--alist
+    if(alist<0){
+        alist=3
+    }
+    musicpl(musiclist[alist])
+    if ($$('.ctr-c div')[1].classList.contains('iconn'))
+    {
+        $$('.ctr-c div')[1].classList.remove('iconn')
+    $$('.ctr-c div')[1].classList.add('iconzt')
+    }
+    else{
+        
+    }
+  
+        audio.play()
+})
+ 
+$$('.ctr-c div')[1].addEventListener('click',function(){
+    if( this.classList.contains('iconn')){
+        this.classList.remove('iconn')
+        this.classList.add('iconzt')
+        audio.play()
+    }
+    else{
+        
+        this.classList.remove('iconzt')
+        this.classList.add('iconn')
+        audio.pause()
+    }
+
+})
+
+getmusic(function(list){
+    console.log(list[1].url)
+   musicpl(list[alist])
+
+})
+
+ //获取相关信息
+function musicpl(musicpath){
+    console.log(musicpath)
+   audio.src=musicpath.url
+   var urls="url" + '('+'\'' +musicpath.img + '\''+ '\)'
+   var beijing='background-image:'+ urls 
+   $('.content').setAttribute('style',beijing)
+   $$('.actor span')[1].innerText=musicpath.author
+   $('h2').innerText=musicpath.name
+   audio.ontimeupdate = function(){
+    //    console.log(this.currentTime)
+    //    console.log(this.duration)
+       $('.jd-w').style.width= (this.currentTime/this.duration)*100 +'%'
+       
+        var min = Math.floor(this.currentTime/60) 
+           var m =Math.floor(this.currentTime%60 +'') 
+           m=m>10?m:0+m;
+          console.log(min)
+          
+    
+    $('.time-jd').innerText=min+ ':'+m   
+       $('.time-jd')
+   }
+ } 
+
+
+
+var musiclist
+function getmusic(callback){
+var xhr = new XMLHttpRequest()
+
+xhr.timeout = 10000
+xhr.open('get','/mess.json',true)
+xhr.onload=function(){
+    if(this.status === 200 || this.status>200 &&  this.status<400){
+   callback(JSON.parse(this.responseText))
+   musiclist=JSON.parse(this.responseText)
+   console.log(musiclist)}
+   else{
+       console.log('为获取到数据')
+   }
+}
+
+
+xhr.ontimeout = function(){
+    alert('请求超时')
+}
+xhr.onerror = function(){
+    alert('出现问题了')
+}
+xhr.send()
+}
+
+
+// var audio=new Audio('http://118.112.10.151/amobile.music.tc.qq.com/C400000fVqPH1RjwS3.m4a?guid=4239294560&amp;vkey=7A2167BAF870913359838522373E9E588BB86B065F6F5F169B4F3BC21CEEF88FA76C1B75CDF4794EB8AF1C7F0760D5D4DB9F0759514FBDD7&amp;uin=0&amp;fromtag=66')
+
+// $$('.ctr-c div')[1].addEventListener('click',function(){
+//     if( this.classList.contains('iconzt')){
+//         this.classList.remove('iconzt')
+//         this.classList.add('iconn')
+//         audio.play()
+//     }
+//     else{
+        
+//         this.classList.remove('iconn')
+//         this.classList.add('iconzt')
+//         audio.pause()
+//     }
+
+// })
+</script>
+</html>

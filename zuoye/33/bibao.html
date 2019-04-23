@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<button></button>
+</body>
+<script>
+    
+// var fnArr = [];
+// for (let  i = 0; i < 10; i ++) {    let 可以闭合块级作用域，也就是说会从for里面找i
+//   fnArr[i] =  function(){
+//     return i
+//   };
+// }
+// console.log( fnArr[3]() ) 
+// var fnArr = [];
+// for (var i = 0; i < 10; i ++){
+//     fnArr[i]=(function (){
+//      var j=arguments[0]
+//   return function(){
+//     return j
+  
+// }
+// })(i)
+// }
+// console.log( fnArr[3]()) 
+//生成了10个闭包函数，J为占存值，返回了一个函数，赋值给了全局作用域下的fnArr
+
+// var Car = (function(){
+//    var speed = 0;
+//    function setSpeed(i){
+//        speed =i
+//    }
+//    function getSpeed(){
+//        console.log(speed)
+//    }
+//    function speedUp(){
+//        speed+=1
+//    }
+//    function speedDown(){
+//        speed-=1
+//    }
+//    return {
+//       setSpeed: setSpeed,
+//       getSpeed: getSpeed,
+//       speedUp: speedUp,
+//       speedDown: speedDown
+//    }
+// })()
+// Car.setSpeed(30)
+// Car.getSpeed() //30
+// Car.speedUp()
+// Car.getSpeed() //31
+// Car.speedDown()
+// Car.getSpeed()
+// var s =[]
+// for(var i=0;i<5;i++){
+//     setTimeout((function(i){
+//         return function(){
+//             console.log(i)
+//         }
+        
+//     })(i)
+//     ,0)
+   
+// }
+function $(i){
+    return document.querySelector(i)
+}
+function $$(i){
+    return document.qureySelectorAll(i)
+}
+
+    $('button').addEventListener('click',function(){
+     var s= document.createElement('p')
+    $('body').insertBefore(s,this.secendchild)
+})
+document.onkeydown =function(){
+    if(event.ctrlKey){
+        var s= document.createElement('p')
+        s.innerText='haha'
+    $('body').insertBefore(s,this.secendchild)
+    }
+    if(event.keyCode === 65){
+        var s= document.createElement('p')
+        s.innerText='haha'
+    $('body').insertBefore(s,this.secendchild)
+    }
+}
+document.onkeyup =function(){
+    if(event.altKey){
+        $('body').removeChild('p')
+    }
+}
+
+
+</script>
+</html>
