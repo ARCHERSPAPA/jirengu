@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+  
+    li{
+        list-style: none;
+        float: left;
+        width: 300px;
+        margin: 10px;
+        transition: 1s;
+        border: 1px solid rgba(160, 153, 153, 0.7)
+    
+    }
+    li:hover{
+        margin-left:-20px
+    }
+    img{
+        width: 300px;
+        transition: 2s
+    }
+    .clearfixed::after{
+        content: '';
+        clear: both;
+        display: block
+    }
+    html,body,main{
+        width: 100%
+    }
+    main{
+        text-align: center;
+        
+    }
+    main div{
+        display: inline-block;
+        width: 80%   
+    }
+    </style>
+</head>
+<body>
+    <header></header>
+    <main class=>
+        <div class="content clearfixed"></div>
+        <p>  </p>
+    </main>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script>
+var clock 
+    $(window).on('scroll',function(){
+        if(clock){
+            clearTimeout(clock)
+        }
+        clock=setTimeout(function(){
+            if(isshow()){
+                
+                start()
+            }
+           
+        },300)
+    })
+    start()
+    function start(){
+        getnews(function(node){
+           
+            console.log(node)
+           $.each(node,function(i,n){
+            
+               $node=demo(n)
+               console.log(n)
+             
+                   $('.content').append($node)
+             test.init()
+           })
+        })
+      
+        
+    }
+    function isshow(){
+        return $('p').offset().top <=$(window).scrollTop()+$(window).height()
+    }
+   function demo(item){
+ var dm=''
+ dm+='<li class="clearfixed">'
+ dm+='<h3>'+item.name+'</h3>'
+ dm+=' <a href="'+ item.url +'" class="link"><img src="' + item.img_url + '" alt=""></a>';
+ dm+='</li>';
+       return dm
+   }
+   var index=1
+    function getnews(callback){
+       
+        $.ajax({
+    url:'http://platform.sina.com.cn/slide/album_tech',
+    type:'get',
+    jsonp:"jsoncallback",
+        data:{
+            app_key: '1271687855',
+            page:index,
+            show_nume:10
+           
+        },
+        dataType:'JSONP'
+    
+}).done(function(node){
+  
+           
+  
+    callback(node.data)
+    index++
+    // console.log(a)
+}).fail(function(){
+    console.log('404')
+})}
+
+var test={
+    //初始化 init中使用this.相当于在test中添加新的元素。代替了全局变量定义
+  init:function(){
+    this.colCountA=[]
+    this.imgWidth=$('.content img').outerWidth(true)
+    this.colCount =Math.floor($('.content').width())/this.imgWidth
+    console.log(this.colCount)
+    for(var i=0;i<this.colCount; i++){ //初始化数组，数组的长度取决于窗体的大小
+      this.colCountA[i]=0
+      
+    }
+    this.bind()
+  },
+  bind:function(){
+    var _this =this //这里_this=test,因为在这个事件里面this代表的是事件
+    $('.content img').on('load',function(){
+      _this.layout($(this))//初始化加载一次
+    })
+    $(window).on('resize',function(){
+        if(this.clock){
+            clearTimeout(this.clock)
+        }
+      this.clock=setTimeout($('.content img').each(function(){
+        _this.layout($(this))//遍历图片
+      }),500) 
+    })
+  },
+  layout:function($node){
+    console.log(this.colCountA[0])
+    var minValue =this.colCountA[0]
+    var minindex=0 
+    for(var i=0;i<this.colCount;i++){
+        if(this.colCountA[i]<minValue){
+            minValue=this.colCountA[i]
+            minindex=i
+        }
+    }
+    console.log(minValue,minindex)
+    $node.css({
+        left:minindex * this.imgWidth,
+        top:minValue
+    })
+    this.colCountA[minindex]+=$node.outerHeight(true)//每一次找到最小高度的那个的INDEX，然后加上图片的高度，
+  }
+}
+</script>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+  <meta charset="utf-8">
+  <title>瀑布流布局</title>
+  <style>
+
+    .waterfall {
+     /*  width: 600px;
+      margin: 0 auto; */
+    }
+    .waterfall img{
+      width: 100px;
+      margin: 10px;
+      position: absolute;
+      transition: all 4s;
+ 
+    }
+  </style>
+</head>
+<body>
+  <div class="waterfall">
+    <img src="http://via.placeholder.com/100x100" alt="300*100">
+    <img src="http://via.placeholder.com/100x70" alt="300*70">
+    <img src="http://via.placeholder.com/100x150" alt="300*150">
+    <img src="http://via.placeholder.com/100x250" alt="300*250">
+    <img src="http://via.placeholder.com/100x80" alt="300*80">
+    <img src="http://via.placeholder.com/100x90" alt="300*90">
+    <img src="http://via.placeholder.com/100x120" alt="300*120">
+    <img src="http://via.placeholder.com/100x210" alt="300*210">
+    <img src="http://via.placeholder.com/100x230" alt="300*230">
+    <img src="http://via.placeholder.com/100x100" alt="300*100">
+    <img src="http://via.placeholder.com/100x70" alt="300*70">
+    <img src="http://via.placeholder.com/100x150" alt="300*150">
+    <img src="http://via.placeholder.com/100x250" alt="300*250">
+    <img src="http://via.placeholder.com/100x80" alt="300*80">
+    <img src="http://via.placeholder.com/100x90" alt="300*90">
+    <img src="http://via.placeholder.com/100x120" alt="300*120">
+    <img src="http://via.placeholder.com/100x210" alt="300*210">
+    <img src="http://via.placeholder.com/100x230" alt="300*230">
+
+  </div>
+</body>
+<script>
+var test={
+    //初始化 init中使用this.相当于在test中添加新的元素。代替了全局变量定义
+  init:function(){
+    this.colCountA=[]
+    this.imgWidth=$('.waterfall img').outerWidth(true)
+    this.colCount =Math.floor($('.waterfall').width())/this.imgWidth
+    for(var i=0;i<this.colCount; i++){ //初始化数组，数组的长度取决于窗体的大小
+      this.colCountA[i]=0
+    }
+    this.bind()
+  },
+  bind:function(){
+    var _this =this //这里_this=test,因为在这个事件里面this代表的是事件
+    $('.waterfall img').on('load',function(){
+      _this.layout($(this))//初始化加载一次
+    })
+    $(window).on('resize',function(){
+      $('.waterfall img').each(function(){
+        _this.layout($(this))//遍历图片
+      })
+    })
+  },
+  layout:function($node){
+    console.log($node)
+    var minValue =this.colCountA[0]
+    var minindex=0
+    for(var i=0;i<this.colCount;i++){
+        if(this.colCountA[i]<minValue){
+            minValue=this.colCountA[i]
+            minindex=i
+        }
+    }
+    console.log(minValue,minindex)
+    $node.css({
+        left:minindex * this.imgWidth,
+        top:minValue
+    })
+    this.colCountA[minindex]+=$node.outerHeight(true)//每一次找到最小高度的那个的INDEX，然后加上图片的高度，
+  }
+}
+test.init()
+</script>
