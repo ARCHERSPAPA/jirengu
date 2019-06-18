@@ -97,7 +97,7 @@ var clock
         $.ajax({
     url:'http://platform.sina.com.cn/slide/album_tech',
     type:'get',
-    jsonp:"jsoncallback",
+    jsonp:"jsoncallback",//修改callback的名字，因为服务器不一样返回的格式也不一样
         data:{
             app_key: '1271687855',
             page:index,

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="referrer" content="never">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1127141_7abnqn7sgi5.css">
+    <link rel="stylesheet" href="animate.css">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        a {
+            text-decoration: none;
+            color: black
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%
+        }
+
+        .clearfixed::after {
+            content: '';
+            clear: both;
+            display: block
+        }
+
+        main {
+
+            height: calc(100% - 24vh);
+
+        }
+
+        footer {
+            margin-top: -10vh;
+            height: 24vh;
+            background: linear-gradient(30deg, rgba(155, 136, 136, 0.5), rgba(1, 1, 1, 0.3))
+        }
+
+        figure {
+            height: 40vh;
+            background-image: url('https://i.ytimg.com/vi/ol4xmFnhqjA/maxresdefault.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: -27px
+        }
+
+        .iconfont {
+            font-size: 5vh
+        }
+
+        .ctr {
+            float: left;
+            width: 50vh;
+            margin-left: 200px
+        }
+
+        .ctr-b {
+            margin-top: 3vh;
+
+            display: flex;
+            justify-content: space-around
+        }
+
+        .ctr-a {
+            height: 40vh;
+            margin-top: 20vh;
+
+        }
+
+        .bki {
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100%;
+            opacity: 0.3;
+            z-index: -1;
+            position: absolute;
+            background-image: url('https://i.ytimg.com/vi/ol4xmFnhqjA/maxresdefault.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            filter: blur(4px)
+        }
+
+        .content {
+
+            margin-top: 10vh;
+            margin-left: 2vh;
+
+            display: inline-block;
+            width: 100vh;
+            height: 59vh;
+            position: relative;
+
+        }
+
+        .content>h2 {
+            font-size: 3vh
+        }
+
+        .content>p {
+            font-size: 1vh
+        }
+
+        .content .geci {
+            font-size: 3vh
+        }
+
+        #w {
+            margin-top: 40vh;
+            top: 7.5vh;
+            left: 0vh;
+            display: inline-block;
+            background: rgba(46, 42, 42, 0.5);
+            height: 1.3vh;
+            width: 0vh;
+            position: absolute;
+            transition: 1s;
+
+        }
+        .circle{
+           
+            display: inline-block;
+            width: 2vh;
+            height: 2vh;
+            border-radius: 50%;
+            background: black;
+            position: absolute;
+            transform: translateY(-23%);
+            top: 47.5vh;
+        }
+
+        #v {
+            margin-top: 41vh;
+            height: 1vh;
+            top: 1vh;
+
+            background: rgba(241, 230, 230, 0.6);
+
+
+        }
+       
+        .dir {
+            height: 24vh;
+            font-size: 3vh;
+            margin-top: 9vh;
+            position: relative;
+
+        }
+
+        .iconfont.iconzuo {
+            float: left;
+            margin-left: 180px;
+            margin-top: 9vh;
+            opacity: 0;
+            transition: .4s
+        }
+
+        .iconfont.iconyou {
+
+            margin-top: 9vh;
+            margin-left: 170vh;
+            opacity: 0;
+            transition: .4s
+        }
+
+        img {
+            width: 19vh;
+            height: 12vh;
+        }
+
+        .imgdir {
+
+            display: inline-block;
+            width: 124vh;
+            margin-left: 260px;
+            margin-top: 5vh;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            height: 19vh;
+        }
+
+        .imgdirz {
+            display: inline;
+            position: absolute;
+            white-space: nowrap;
+            overflow: hidden;
+
+            left: 0;
+        }
+
+        .imgdirz>div {
+            display: inline-block;
+            margin-left: 2vh;
+        }
+
+        .imgdir img:hover {
+            box-shadow: 2vh 3vh 5vh 2vh rgba(73, 68, 68, 0.5)
+        }
+
+        .iconfont.iconpre,
+        .iconfont.iconlove,
+        .iconfont.iconpl {
+            transition: 1s
+        }
+
+        .iconfont.iconpre:hover,
+        .iconfont.iconlove:hover {
+            color: rgba(141, 33, 33, 0.7)
+        }
+
+        .iconfont.iconpl:hover {
+
+            box-shadow: 2px 3px 30px 8px
+        }
+
+        .sc {
+            color: rgba(141, 33, 33, 0.7)
+        }
+
+        .show {
+            opacity: 1 !important;
+        }
+
+        #time {
+            float: right
+        }
+
+        .ctr-d {
+            position: absolute;
+            top: 1vh;
+            left: 1vh;
+        }
+
+        .content span {
+            font-size: 2vh
+        }
+
+        .act {
+            box-shadow: 2px 3px 30px 8px
+        }
+
+        .ceshi{
+                width: 2.5vh ;
+                height: 2.5vh;
+            }
+        @media (max-width:700px) {
+
+            footer {
+                display: none
+            }
+
+            .ctr {
+                width: 60vh;
+                position: absolute;
+                top: 3vh;
+                left: 1vh;
+            }
+
+            .content {
+                margin-left: 160px;
+                margin-top: 27vh;
+            }
+
+            #v {
+                margin-top: 51.5vh;
+                height: 1vh;
+                top: 1vh;
+
+                background: rgba(241, 230, 230, 0.6);
+
+
+            }
+
+            .content>h2 {
+                margin-left: 20vh;
+                margin-top: -12vh
+            }
+
+            .content>span {
+                margin-left: 20vh;
+
+            }
+           
+        }
+    </style>
+</head>
+
+<body>
+    <main class="clearfixed">
+        <section class="ctr">
+            <div class="ctr-a">
+                <figure></figure>
+                <div class="ctr-b">
+                    <a href="">
+                        <div class="iconfont iconlove ctr-c"></div>
+                    </a>
+                    <a href="">
+                        <div class="iconfont iconpl ctr-c"></div>
+                    </a>
+
+                    <a href="">
+                        <div class="iconfont iconpre ctr-c"></div>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+        <section class="content">
+            <h2>archer</h2>
+            <span>歌手:</span> <span class="auther">xjy</span>
+
+            <div class="clearfixed wrap">
+                <div id="w">
+                    
+                </div>
+                <span class="circle"></span>
+                <div id="v"></div><span id="time">0:00</span>
+            </div>
+
+            <p style="position: absolute;top:52vh;left:90vh;"><i><b>by:xiangjianyu</b></i> </p>
+            <p class="geci"></p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="dir">
+            <div class="ctr-d"><a href="">
+                    <div class="iconfont iconzuo "></div>
+                </a>
+                <a href="">
+                    <div class="iconfont iconyou "></div>
+                </a> </div>
+
+            <div class="imgdir">
+                <div class="imgdirz ">
+
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+    <div class="bki"></div>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+
+<script>
+
+    //     var audio =new Audio()
+    // audio.autoplay=true;
+    // audio.src='http://118.112.10.148/amobile.music.tc.qq.com/C400004Z1sZL0TzKTb.m4a?guid=4239294560&amp;vkey=A8D26057AB6B1FE513A9766E1B37CC0AF409E17C5A3E17650B39395BA5762187BB5043C79C60552CFB63E06881FB9E33BBE49A9A8FA3E479&amp;uin=0&amp;fromtag=66'
+    $(document).on('click', 'a', function (i) {
+        i.preventDefault()
+    })
+
+    $('.dir').mouseenter(function () {
+
+        $('.iconfont.iconzuo').addClass('show')
+        $('.iconfont.iconyou').addClass('show')
+        console.log('hah')
+    })
+    $('footer').mouseleave(function () {
+
+        $('.iconfont.iconzuo').removeClass('show')
+        $('.iconfont.iconyou').removeClass('show')
+        console.log('hah')
+    })
+
+
+
+
+
+    // $('.imgdir').on('click','div',function(i){
+    //     i.preventDefault()
+    //     var a=$(this).find('img').attr('src')
+    //     $('.bki').attr('style','background-image:'+'url'+'('+a+')')
+    //     $('figure').attr('style','background-image:'+'url'+'('+a+')')
+    // //     $('figure').css({
+    // //         backgroundimage=url($(this).children('img').attr('src'))
+    // //     })
+    // })
+    // $('.iconfont.iconpre').on('click',function(){
+    //  audio.src='http://118.112.10.148/amobile.music.tc.qq.com/C400002TakDE0NTLWX.m4a?guid=4239294560&amp;vkey=B6021F18834BE4A7D4CD0373951FC84716685C54B68964C2E1A176D5864AC9DCE2FCA047FA76B3097E36CBE139641AD7A90AAB153F0C4025&amp;uin=0&amp;fromtag=66'
+    // audio.play()
+    // $('.iconfont.iconpl').removeClass('iconpl').addClass('iconzt')
+    // })
+
+    var evevlisener = {
+        on: function (type, hander) {
+            $(document).on(type, hander)
+        },
+        fire: function (type, data) {
+            $(document).trigger(type, data)//添加了一个自定义事件
+        }
+    }
+
+
+    var footer = {
+        init: function () {
+
+            this.bind()
+            this.wit = $('.imgdir').outerWidth()
+            this.isplay = false
+        },
+        bind: function () {
+            var list
+            var _this = this
+            $.getJSON('http://api.jirengu.com/fm/getChannels.php')
+                .done(function (i) {
+                    console.log(i.channels[0])
+                    footer.render(i.channels)
+                    list = i.channels
+                })
+            $('.imgdirz').on('click', 'div', function () {
+                $(this).addClass('act')
+                    .siblings().removeClass('act')
+                $('.bki').css(
+                    'background-image', 'url(' + list[$(this).index()].cover_big + ')')
+                $('figure').css({
+                    'background-image': 'url(' + list[$(this).index()].cover_small + ')'
+                })
+                evevlisener.fire('selectimg', {
+                    id: list[$(this).index()].channel_id,
+                    name: list[$(this).index()].name
+                })
+            })
+            $('.iconfont.iconyou').on('click', function () {
+                // console.log('nihao')
+
+                if (-parseFloat($('.imgdirz').css('left')) + 40 < footer.wit * 5) {
+                    if (_this.isplay) return
+                    _this.isplay = true
+                    $('.imgdirz').animate({
+                        left: '-=122vh'
+                    }, 400, function () {
+                        _this.isplay = false
+                    })
+                }
+
+            })
+            $('.iconfont.iconzuo').on('click', function () {
+                // console.log('nihao')
+                if (-parseFloat($('.imgdirz').css('left')) + 40 > footer.wit) {
+                    if (_this.isplay) return
+                    _this.isplay = true
+                    $('.imgdirz').animate({
+                        left: '+=122vh'
+                    }, 400, function () {
+                        _this.isplay = false
+                    })
+                }
+
+            })
+        },
+        render: function (colm) {
+            $(colm).each(function (index, a) {
+                // console.log(a)
+                var $node = getcolm(a)
+                //   console.log($node)
+                $('.imgdirz ').append($node)
+            })
+            function getcolm(node) {
+                //    console.log(node.cover_small)
+                var etl = ''
+
+                etl += '<div class="imga" style="text-align:center">'
+                etl += '<a>'
+                etl += '<img src=' + "'" + node.cover_small + "'" + '>'
+                etl += '<p style="padding">' + node.name + '</p>'
+                etl += '</a>'
+                etl += '</div>'
+
+                return etl
+            }
+        }
+    }
+    footer.init()
+    // var audio=new Audio()
+    // audio.src='http://zhangmenshiting.qianqian.com/data2/music/c660a01819228b7eb5322708d3349dbf/613479832/613479832.mp3?xcode=f7860b8ce171a420265fb8d128cb5641'
+
+    $.fn.boomText = function (type) {
+        var arr
+        console.log(type)
+        type = type || 'rollIn'
+        this.html(
+            arr = $('this').text()
+                .split('').map(function (word) {
+                    return '<span class="boomText">' + word + '</span>'
+                })
+
+        )
+        console.log(arr)
+        return arr.join()
+    }
+
+
+    var timemusic = setInterval(function () {
+        var m = Math.floor(fmlist.audio.currentTime / 60)
+        var sec = Math.floor(fmlist.audio.currentTime % 60) > 9 ? Math.floor(fmlist.audio.currentTime % 60) : '0' + Math.floor(fmlist.audio.currentTime % 60);
+        $('#time').text(m + ':' + sec)
+        $('#w').width((Math.floor((fmlist.audio.currentTime / fmlist.audio.duration) * 100) + 'vh'))
+        var nt = Math.floor((fmlist.audio.currentTime / fmlist.audio.duration) * 100)
+   
+        if (nt === 100) {
+            fmlist.get(function () {
+                fmlist.setmus()
+                fmlist.load()
+
+                $('.iconlove').removeClass('sc')
+
+            })
+        }
+        // console.log(fmlist.obj['0'+m+':'+sec])
+        var line = fmlist.obj['0' + m + ':' + sec]
+        if (line) {
+            $('.content .geci').text(line)
+            // .boomText('fadein')
+        }
+        var computeX=$('#w').width()
+$('.circle').attr('style',`left:${computeX-8}px`)
+
+    })
+ 
+
+
+
+
+    $('.iconfont.iconpl').on('click', function () {
+
+
+        if ($(this).hasClass('iconpl')) {
+            $(this).removeClass('iconpl')
+            $(this).addClass('iconzt')
+        }
+        else {
+            $(this).removeClass('iconzt')
+            $(this).addClass('iconpl')
+        }
+
+    }
+    )
+    var fmlist = {
+        init: function () {
+
+            this.audio = new Audio()
+            this.audio.autoplay = true
+            this.channel_id
+            this.li
+            var _this = this
+            this.obj
+
+            evevlisener.on('selectimg', function (e, data) {
+
+
+                _this.channel_id = data.id
+                // console.log(_this.channel_id)
+                _this.get(function () {
+                    _this.setmus()
+                    _this.load()
+
+                    $('.iconlove').removeClass('sc')
+
+                })
+            })
+
+        },
+        load() {
+            $.getJSON('https://jirenguapi.applinzi.com/fm/getLyric.php', {
+                sid: this.li.sid
+            }).done(function (a) {
+                var lyric = a.lyric
+                var lycobj = {}
+                lyric.split('\n').forEach(function (line) {
+                    var times = line.match(/\d{2}:\d{2}/g)
+                    var str = line.replace(/\[.+?\]/, '')
+                    if (Array.isArray(times)) {
+                        times.forEach(function (timea) {
+                            lycobj[timea] = str
+                        })
+                    }
+                })
+                fmlist.obj = lycobj
+                //    console.log(fmlist.obj)
+
+
+            })
+        },
+
+        get(callback) {
+            var _this = this
+            $.getJSON('http://api.jirengu.com/fm/getSong.php', {
+                channel: this.channel_id
+            }).done(function (lis) {
+                _this.li = lis['song'][0]
+                // console.log(_this.li.title)
+            })
+            callback()
+        },
+        setmus() {
+            //   console.log(fmlist.li.url)
+            this.audio.src = this.li.url
+
+            $('.iconfont.iconpl').removeClass('iconpl').addClass('iconzt')
+
+            this.audio.play()
+            //   console.log(this.li)
+            $('.content h2').text(this.li.title)
+            $('.content .auther').text(this.li.artist)
+        },
+
+
+    }
+
+
+    $('.wrap').on('click',function(e){
+            console.log(this)
+            var s=e.clientX-this.getBoundingClientRect().left
+        $('#w').attr('style',`width:${s}px`)
+        var a= fmlist.audio.duration*(s/$('#v').width())
+        console.log(fmlist.audio.duration*(s/$('#v').width()))
+        fmlist.audio.currentTime=a
+    })
+$('.wrap').on('mouseenter',function(){
+    $('.circle').addClass('ceshi')
+})
+$('.wrap').on('mouseleave',function(){
+    $('.circle').removeClass('ceshi')
+})
+
+
+
+    $('.iconpre').on('click', function () {
+        fmlist.get(function () {
+            fmlist.setmus()
+            fmlist.load()
+        })
+    })
+    $('.iconlove').on('click', function () {
+        $(this).toggleClass('sc')
+    })
+
+
+    $('.iconfont.iconpl ').on('click', function () {
+
+        if ($(this).hasClass('iconzt')) {
+            console.log('ok')
+            fmlist.audio.play()
+
+
+        }
+        if ($(this).hasClass('iconpl')) {
+            fmlist.audio.pause()
+        }
+        //    
+        // if($(this).hasClass('iconzt')){
+        //     $(this).removeClass('iconzt')
+        // }
+        // else{
+        //     $(this).addClass('iconpl')
+        // }
+    })
+
+    fmlist.init()
+</script>
+
+</html>

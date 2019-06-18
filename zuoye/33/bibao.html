@@ -11,24 +11,24 @@
 </body>
 <script>
     
-// var fnArr = [];
-// for (let  i = 0; i < 10; i ++) {    let 可以闭合块级作用域，也就是说会从for里面找i
-//   fnArr[i] =  function(){
-//     return i
-//   };
-// }
-// console.log( fnArr[3]() ) 
-// var fnArr = [];
-// for (var i = 0; i < 10; i ++){
-//     fnArr[i]=(function (){
-//      var j=arguments[0]
-//   return function(){
-//     return j
+var fnArr = [];
+for (let  i = 0; i < 10; i ++) {    let 可以闭合块级作用域，也就是说会从for里面找i
+  fnArr[i] =  function(){
+    return i
+  };
+}
+console.log( fnArr[3]() ) 
+var fnArr = [];
+for (var i = 0; i < 10; i ++){
+    fnArr[i]=(function (){
+     var j=arguments[0]
+  return function(){
+    return j
   
-// }
-// })(i)
-// }
-// console.log( fnArr[3]()) 
+}
+})(i)
+}
+console.log( fnArr[3]()) 
 //生成了10个闭包函数，J为占存值，返回了一个函数，赋值给了全局作用域下的fnArr
 
 // var Car = (function(){

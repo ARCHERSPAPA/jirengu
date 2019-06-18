@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+
   <meta charset="utf-8">
   <title>瀑布流布局</title>
   <style>
@@ -17,7 +17,9 @@
       transition: all 4s;
  
     }
+    
   </style>
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 </head>
 <body>
   <div class="waterfall">
@@ -42,31 +44,69 @@
 
   </div>
 </body>
+
 <script>
 var test={
     //初始化 init中使用this.相当于在test中添加新的元素。代替了全局变量定义
   init:function(){
     this.colCountA=[]
     this.imgWidth=$('.waterfall img').outerWidth(true)
-    this.colCount =Math.floor($('.waterfall').width())/this.imgWidth
-    for(var i=0;i<this.colCount; i++){ //初始化数组，数组的长度取决于窗体的大小
+    this.colCount =  Math.floor($('.waterfall').width())/this.imgWidth
+    // }
+    
+ 
+    // var _this=this
+    // this.li=function(){
+      for(var i=0;i<this.colCount; i++){ //初始化数组，数组的长度取决于窗体的大小
       this.colCountA[i]=0
     }
-    this.bind()
+    // }
+    // this.li()
+    // console.log(this.colCountA)
+    // this.get=function(){
+    //   _this.colCount = function(){
+    //   return Math.floor($('.waterfall').width())/this.imgWidth
+    // },
+    // _this.colCount()
+    // _this.li=function(a){
+    //   for(var i=0;i<this.colCount; i++){ //初始化数组，数组的长度取决于窗体的大小
+    //   _this.colCountA[i]=0
+    // }
+    // _this.li()
+    // }
+  
+    
+    // }
+ 
+    // this.bind()
   },
   bind:function(){
+    
+    var clock
     var _this =this //这里_this=test,因为在这个事件里面this代表的是事件
     $('.waterfall img').on('load',function(){
-      _this.layout($(this))//初始化加载一次
+      _this.layout($(this))//监听图片加载
     })
-    $(window).on('resize',function(){
-      $('.waterfall img').each(function(){
-        _this.layout($(this))//遍历图片
-      })
-    })
+  //   $(window).on('resize',function(){
+  //  _this.colCount()
+  //  console.log(_this.colCount())
+  //     // _this.li( _this.colCount())
+  //     _this.li()
+  //     $('.waterfall img').each(function(){
+        
+  //     console.log('ok')
+      
+        
+  //         _this.layout($(this))//遍历图片
+      
+  //     })
+   
+  //   })
   },
+  
   layout:function($node){
-    console.log($node)
+    // console.log($node)
+    // console.log($node)
     var minValue =this.colCountA[0]
     var minindex=0
     for(var i=0;i<this.colCount;i++){
@@ -75,13 +115,18 @@ var test={
             minindex=i
         }
     }
-    console.log(minValue,minindex)
+    // console.log(minValue,minindex)
     $node.css({
         left:minindex * this.imgWidth,
         top:minValue
     })
+    // if(this.colCountA[minindex]>500){
+    //   test.li()
+    // }
     this.colCountA[minindex]+=$node.outerHeight(true)//每一次找到最小高度的那个的INDEX，然后加上图片的高度，
   }
+      
 }
 test.init()
+
 </script>
